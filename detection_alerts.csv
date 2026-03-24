@@ -1,0 +1,3 @@
+rule,severity,count,artifacts
+Suspicious Mail Domain,medium,1,['mail.mockorg.local']
+Remote Access Portal Detection,low,1,['vpn.mockorg.local']
