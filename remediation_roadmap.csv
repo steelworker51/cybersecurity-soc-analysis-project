@@ -1,0 +1,10 @@
+asset_id,vulnerability,severity,priority,recommended_fix
+A4,CVE-2019-0708,critical,1,Remote Desktop Services vulnerability (BlueKeep)
+A5,CVE-2020-1472,critical,1,Netlogon elevation of privilege vulnerability
+A7,CWE-434,critical,1,Unrestricted file upload vulnerability
+A7,CWE-250,critical,1,Misconfigured SUID binary allowing privilege escalation
+A3,CVE-2023-1234,high,2,Outdated web framework
+A3,CVE-2021-41773,high,2,Apache path traversal vulnerability
+A6,CVE-2019-0708,high,2,Remote Desktop services exposed to network
+A6,CVE-2020-25709,high,2,LDAP directory exposure risk
+A6,CVE-2015-5600,medium,3,SSH brute-force risk
