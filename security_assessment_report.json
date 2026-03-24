@@ -1,0 +1,408 @@
+{
+  "assets": [
+    {
+      "asset_id": "A1",
+      "asset_type": "domain",
+      "value": "vpn.mockorg.local",
+      "owner": "mock_org",
+      "notes": "Lab VPN portal"
+    },
+    {
+      "asset_id": "A2",
+      "asset_type": "host",
+      "value": "mail.mockorg.local",
+      "owner": "mock_org",
+      "notes": "Lab mail server"
+    },
+    {
+      "asset_id": "A3",
+      "asset_type": "ip",
+      "value": "192.168.56.10",
+      "owner": "mock_org",
+      "notes": "Web app VM"
+    },
+    {
+      "asset_id": "A4",
+      "asset_type": "domain",
+      "value": "portal.mockorg.local",
+      "owner": "mock_org",
+      "notes": "Employee portal"
+    },
+    {
+      "asset_id": "A5",
+      "asset_type": "domain",
+      "value": "mail.mockorg.local",
+      "owner": "mock_org",
+      "notes": "Mail access portal"
+    },
+    {
+      "asset_id": "A6",
+      "asset_type": "host",
+      "value": "intranet.mockorg.local",
+      "owner": "mock_org",
+      "notes": "Internal documentation portal"
+    },
+    {
+      "asset_id": "A7",
+      "asset_type": "ip",
+      "value": "192.168.56.25",
+      "owner": "mock_org",
+      "notes": "Possible mail server IP"
+    },
+    {
+      "asset_id": "A8",
+      "asset_type": "ip",
+      "value": "192.168.56.30",
+      "owner": "mock_org",
+      "notes": "Possible VPN endpoint IP"
+    },
+    {
+      "asset_id": "A9",
+      "asset_type": "ip",
+      "value": "10.64.189.206",
+      "owner": "mock_org",
+      "notes": "TryHackMe Nmap lab target host"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "asset_id": "A3",
+      "cve": "CVE-2023-1234",
+      "severity": "high",
+      "description": "Outdated web framework",
+      "evidence": "Version banner in HTTP response"
+    },
+    {
+      "asset_id": "A3",
+      "cve": "CVE-2021-41773",
+      "severity": "high",
+      "description": "Apache path traversal vulnerability",
+      "evidence": "Observed during lab enumeration"
+    },
+    {
+      "asset_id": "A4",
+      "cve": "CVE-2019-0708",
+      "severity": "critical",
+      "description": "Remote Desktop Services vulnerability (BlueKeep)",
+      "evidence": "Service detected during scan"
+    },
+    {
+      "asset_id": "A5",
+      "cve": "CVE-2020-1472",
+      "severity": "critical",
+      "description": "Netlogon elevation of privilege vulnerability",
+      "evidence": "Simulated vulnerable domain controller"
+    },
+    {
+      "asset_id": "A6",
+      "cve": "CVE-2019-0708",
+      "severity": "high",
+      "description": "Remote Desktop services exposed to network",
+      "evidence": "RDP service detected on port 3389"
+    },
+    {
+      "asset_id": "A6",
+      "cve": "CVE-2015-5600",
+      "severity": "medium",
+      "description": "SSH brute-force risk",
+      "evidence": "OpenSSH service detected on port 22"
+    },
+    {
+      "asset_id": "A6",
+      "cve": "CVE-2020-25709",
+      "severity": "high",
+      "description": "LDAP directory exposure risk",
+      "evidence": "LDAP service discovered on port 389"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "AR1",
+      "artifact_type": "domain",
+      "value": "vpn.mockorg.local",
+      "related_asset_id": "A1",
+      "notes": "Remote access portal"
+    },
+    {
+      "artifact_id": "AR2",
+      "artifact_type": "domain",
+      "value": "mail.mockorg.local",
+      "related_asset_id": "A2",
+      "notes": "Mail portal"
+    },
+    {
+      "artifact_id": "AR3",
+      "artifact_type": "ip",
+      "value": "192.168.56.25",
+      "related_asset_id": "A4",
+      "notes": "Mail server IP"
+    },
+    {
+      "artifact_id": "AR4",
+      "artifact_type": "file_hash",
+      "value": "45cc5dd1c03e2dd598dcf11fcacd1934e69668002e27670fc0f3fbe0267519d5",
+      "related_asset_id": null,
+      "notes": "Sample attachment hash"
+    },
+    {
+      "artifact_id": "AR5",
+      "artifact_type": "domain",
+      "value": "hrconnex.thm",
+      "related_asset_id": null,
+      "notes": "Authorized HR onboarding partner domain identified during SOC investigation"
+    },
+    {
+      "artifact_id": "AR6",
+      "artifact_type": "service",
+      "value": "ssh:22",
+      "related_asset_id": "A6",
+      "notes": "OpenSSH 8.2p1 detected via Nmap"
+    },
+    {
+      "artifact_id": "AR7",
+      "artifact_type": "service",
+      "value": "http:80",
+      "related_asset_id": "A6",
+      "notes": "Python WebSockify service detected"
+    },
+    {
+      "artifact_id": "AR8",
+      "artifact_type": "service",
+      "value": "http:81",
+      "related_asset_id": "A6",
+      "notes": "Apache HTTP server detected"
+    },
+    {
+      "artifact_id": "AR9",
+      "artifact_type": "service",
+      "value": "ldap:389",
+      "related_asset_id": "A6",
+      "notes": "OpenLDAP directory service detected"
+    },
+    {
+      "artifact_id": "AR10",
+      "artifact_type": "service",
+      "value": "rdp:3389",
+      "related_asset_id": "A6",
+      "notes": "Remote Desktop service detected"
+    },
+    {
+      "artifact_id": "AR11",
+      "artifact_type": "service",
+      "value": "vnc:5901",
+      "related_asset_id": "A6",
+      "notes": "VNC remote desktop service detected"
+    }
+  ],
+  "iocs": [
+    {
+      "ioc_type": "domain",
+      "value": "phishy-lookalike.net",
+      "confidence": 80,
+      "context": "Known phishing infra (simulated)"
+    },
+    {
+      "ioc_type": "ip",
+      "value": "203.0.113.50",
+      "confidence": 70,
+      "context": "Suspicious IP (simulated)"
+    },
+    {
+      "ioc_type": "domain",
+      "value": "mail.mockorg.local",
+      "confidence": 90,
+      "context": "Simulated phishing infrastructure overlap"
+    },
+    {
+      "ioc_type": "file_hash",
+      "value": "45cc5dd1c03e2dd598dcf11fcacd1934e69668002e27670fc0f3fbe0267519d5",
+      "confidence": 95,
+      "context": "Known malicious attachment hash (simulated)"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "F1",
+      "category": "recon",
+      "title": "Externally identifiable VPN portal",
+      "severity": "medium",
+      "related_asset_id": "A1",
+      "description": "A VPN-related domain was identified during reconnaissance.",
+      "evidence": "Domain vpn.mockorg.local present in lab asset inventory.",
+      "recommendation": "Review exposure and require MFA for all remote access."
+    },
+    {
+      "finding_id": "F2",
+      "category": "recon",
+      "title": "Mail portal increases phishing attack surface",
+      "severity": "medium",
+      "related_asset_id": "A2",
+      "description": "Mail infrastructure is visible in the environment and may be a target for credential harvesting.",
+      "evidence": "Mail server and mail portal naming conventions observed in recon data.",
+      "recommendation": "Harden authentication, user awareness, and mailbox protections."
+    },
+    {
+      "finding_id": "F3",
+      "category": "recon",
+      "title": "Web application host identified",
+      "severity": "info",
+      "related_asset_id": "A3",
+      "description": "A web application VM was identified as part of the mock target environment.",
+      "evidence": "Host and IP documented during lab setup.",
+      "recommendation": "Validate software versions and perform vulnerability review."
+    },
+    {
+      "finding_id": "F4",
+      "category": "ioc",
+      "title": "IOC match detected for domain",
+      "severity": "high",
+      "related_asset_id": "A2",
+      "description": "Artifact mail.mockorg.local matched a simulated IOC.",
+      "evidence": "Simulated phishing infrastructure overlap",
+      "recommendation": "Investigate the asset, validate the indicator, and isolate affected systems if needed."
+    },
+    {
+      "finding_id": "F5",
+      "category": "ioc",
+      "title": "IOC match detected for file_hash",
+      "severity": "high",
+      "related_asset_id": null,
+      "description": "Artifact 45cc5dd1c03e2dd598dcf11fcacd1934e69668002e27670fc0f3fbe0267519d5 matched a simulated IOC.",
+      "evidence": "Known malicious attachment hash (simulated)",
+      "recommendation": "Investigate the asset, validate the indicator, and isolate affected systems if needed."
+    },
+    {
+      "finding_id": "F6",
+      "category": "attack_path",
+      "title": "High-risk attack path identified: Phishing to Mail Access",
+      "severity": "high",
+      "related_asset_id": null,
+      "description": "Attack path 'Phishing to Mail Access' could allow the objective: Obtain user credentials and access internal resources.",
+      "evidence": "Likelihood=medium, Impact=high, Overall Risk=high",
+      "recommendation": "Reduce exposure by patching vulnerabilities, strengthening authentication, and segmenting access."
+    },
+    {
+      "finding_id": "F7",
+      "category": "attack_path",
+      "title": "High-risk attack path identified: Web Exploitation to Internal Compromise",
+      "severity": "critical",
+      "related_asset_id": null,
+      "description": "Attack path 'Web Exploitation to Internal Compromise' could allow the objective: Exploit vulnerable services for deeper access.",
+      "evidence": "Likelihood=high, Impact=high, Overall Risk=critical",
+      "recommendation": "Reduce exposure by patching vulnerabilities, strengthening authentication, and segmenting access."
+    },
+    {
+      "finding_id": "F8",
+      "category": "training_lab",
+      "title": "Phishing attack simulation demonstrates credential harvesting risk",
+      "severity": "medium",
+      "related_asset_id": null,
+      "description": "TryHackMe phishing lab demonstrated how attackers can trick users into revealing credentials.",
+      "evidence": "Observed indicators such as suspicious sender domain and credential capture page.",
+      "recommendation": "Provide phishing awareness training and implement email filtering controls."
+    },
+    {
+      "finding_id": "F9",
+      "category": "soc_investigation",
+      "title": "Suspicious external email link alert investigated",
+      "severity": "info",
+      "related_asset_id": null,
+      "description": "SOC alert triggered by inbound email containing an external link.",
+      "evidence": "TryHackMe SOC alert investigation showed link belonged to authorized HR partner domain hrconnex.thm.",
+      "recommendation": "Continue monitoring inbound external links and maintain allow-list for trusted third-party partners."
+    },
+    {
+      "finding_id": "F10",
+      "category": "detection",
+      "title": "Detection alert generated: Remote Access Portal Detection",
+      "severity": "low",
+      "related_asset_id": null,
+      "description": "Artifact vpn.mockorg.local triggered detection rule DR3.",
+      "evidence": "Flag remote access portals for additional review.",
+      "recommendation": "Validate the alert, review related activity, and tune detection logic if needed."
+    },
+    {
+      "finding_id": "F11",
+      "category": "detection",
+      "title": "Detection alert generated: Suspicious Mail Domain",
+      "severity": "medium",
+      "related_asset_id": null,
+      "description": "Artifact mail.mockorg.local triggered detection rule DR1.",
+      "evidence": "Detect mail-related domains that may be associated with phishing activity.",
+      "recommendation": "Validate the alert, review related activity, and tune detection logic if needed."
+    },
+    {
+      "finding_id": "F12",
+      "category": "detection",
+      "title": "Detection alert generated: Known Malicious Attachment Hash",
+      "severity": "high",
+      "related_asset_id": null,
+      "description": "Artifact 45cc5dd1c03e2dd598dcf11fcacd1934e69668002e27670fc0f3fbe0267519d5 triggered detection rule DR2.",
+      "evidence": "Detect file hashes associated with known malicious attachments.",
+      "recommendation": "Validate the alert, review related activity, and tune detection logic if needed."
+    },
+    {
+      "finding_id": "F13",
+      "category": "recon",
+      "title": "Multiple remote access services exposed",
+      "severity": "high",
+      "related_asset_id": null,
+      "description": "Nmap scan revealed several exposed remote access services including SSH, RDP, and VNC.",
+      "evidence": "Ports 22, 3389, and 5901 detected open during TryHackMe Nmap lab.",
+      "recommendation": "Restrict remote access services and require strong authentication mechanisms."
+    }
+  ],
+  "attack_paths": [
+    {
+      "path_id": "AP1",
+      "name": "Phishing to Mail Access",
+      "objective": "Obtain user credentials and access internal resources",
+      "likelihood": "medium",
+      "impact": "high",
+      "risk": "high"
+    },
+    {
+      "path_id": "AP2",
+      "name": "Web Exploitation to Internal Compromise",
+      "objective": "Exploit vulnerable services for deeper access",
+      "likelihood": "high",
+      "impact": "high",
+      "risk": "critical"
+    }
+  ],
+  "alerts": [
+    {
+      "alert_id": "DA1",
+      "rule_id": "DR3",
+      "rule_name": "Remote Access Portal Detection",
+      "artifact_id": "AR1",
+      "artifact_value": "vpn.mockorg.local",
+      "artifact_type": "domain",
+      "severity": "low",
+      "status": "open",
+      "notes": "Flag remote access portals for additional review."
+    },
+    {
+      "alert_id": "DA2",
+      "rule_id": "DR1",
+      "rule_name": "Suspicious Mail Domain",
+      "artifact_id": "AR2",
+      "artifact_value": "mail.mockorg.local",
+      "artifact_type": "domain",
+      "severity": "medium",
+      "status": "open",
+      "notes": "Detect mail-related domains that may be associated with phishing activity."
+    },
+    {
+      "alert_id": "DA3",
+      "rule_id": "DR2",
+      "rule_name": "Known Malicious Attachment Hash",
+      "artifact_id": "AR4",
+      "artifact_value": "45cc5dd1c03e2dd598dcf11fcacd1934e69668002e27670fc0f3fbe0267519d5",
+      "artifact_type": "file_hash",
+      "severity": "high",
+      "status": "open",
+      "notes": "Detect file hashes associated with known malicious attachments."
+    }
+  ]
+}
